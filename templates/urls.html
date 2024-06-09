@@ -1,0 +1,45 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container m-5">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for i in range(size) %}
+            {% set record = data[i] %}
+          <tr>
+            <th scope="row">{{ i+1 }}</th>
+            <td>{{ record[1] }}</td>
+            <td><button class="btn btn-md btn-danger btn-del" onclick=deleteUrl({{ record[0] }})>Delete</button></td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+</div>
+<script>
+    function deleteUrl(id){
+        console.log(id);
+        var url ='/urls'
+        fetch(url,{
+            method : 'POST',
+            headers : {
+                'Content-Type':'application/json',
+            },
+            body : JSON.stringify({
+                'id' : id
+            })
+        })
+        .then(()=>{
+            location.reload()
+        })
+    }
+</script>
+
+{% endblock %}

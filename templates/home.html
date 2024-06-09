@@ -1,0 +1,14 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="container text-center">
+        <img src="{{ url_for('static',filename='Amazon-logo.jpeg') }}" class="mt-5" width="35%"/>
+        <h1>Web Scraper</h1>
+        <div class="add-form-wrapper">
+            <form class="add-form" method="post" action="{{ url_for('home') }}">
+                <input type="text" class="addbox" name='url' placeholder="Add url.." size=60%/>
+                <button type="submit" class="btn-warning" id="btn-add"><span>Add</span></button>
+            </form>
+          </div>
+    </div>
+{% endblock %}

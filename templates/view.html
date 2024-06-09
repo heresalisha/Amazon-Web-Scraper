@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class="container mt-5">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for item in data %}
+          <tr>
+            <th scope="row">{{ item['Count'] }}</th>
+            <td>{{ item['Product'] }}</td>
+            <td>{{ item['Rating'] }}</td>
+            <td>{{ item['Price'] }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+</div>
+
+{% endblock %}
